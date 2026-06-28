@@ -73,7 +73,7 @@
       <div class="detail-stat animate-in">
         <div class="stat-emoji">🔥</div>
         <div class="stat-number">{{ "%+g"|format(evolution.best_delta) }}</div>
-        <div class="stat-desc">Maior Salto</div>
+        <div class="stat-desc">Maior Ganho</div>
       </div>
     </div>
 
@@ -81,7 +81,7 @@
     <div class="detail-chart-card animate-in">
       <h2 class="section-title">📉 Evolução — {{ evolution.metric }}</h2>
       <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 8px;">
-        Os pontos em <span style="color: #a855f7; font-weight: 600;">roxo</span> representam a Maior Subsequência Crescente (LIS) 
+        Os pontos em <span style="color: #f97316; font-weight: 600;">laranja</span> representam a Maior Subsequência Crescente (LIS) 
         encontrada pelo algoritmo de programação dinâmica.
       </p>
       <div class="chart-container">
@@ -98,7 +98,7 @@
             <th>#</th>
             <th>Período</th>
             <th>{{ evolution.metric }}</th>
-            <th>Δ (delta)</th>
+            <th>Variação</th>
           </tr>
         </thead>
         <tbody>

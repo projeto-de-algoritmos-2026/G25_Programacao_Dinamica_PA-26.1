@@ -12,7 +12,7 @@ Chart.defaults.font.size = 12;
 
 /* ===== Paleta de cores para gráficos ===== */
 const CHART_COLORS = [
-  { bg: 'rgba(168, 85, 247, 0.2)', border: '#a855f7' },
+  { bg: 'rgba(249, 115, 22, 0.2)', border: '#f97316' },
   { bg: 'rgba(59, 130, 246, 0.2)',  border: '#3b82f6' },
   { bg: 'rgba(6, 182, 212, 0.2)',   border: '#06b6d4' },
   { bg: 'rgba(16, 185, 129, 0.2)',  border: '#10b981' },
@@ -30,10 +30,10 @@ function createMiniChart(canvasId, labels, allValues, lisIndices) {
 
   // Cores por ponto: roxo para LIS, cinza para os demais
   const pointColors = allValues.map((_, i) =>
-    lisIndices.includes(i) ? '#a855f7' : 'rgba(154, 154, 176, 0.4)'
+    lisIndices.includes(i) ? '#f97316' : 'rgba(154, 154, 176, 0.4)'
   );
   const pointBorders = allValues.map((_, i) =>
-    lisIndices.includes(i) ? '#a855f7' : 'rgba(154, 154, 176, 0.3)'
+    lisIndices.includes(i) ? '#f97316' : 'rgba(154, 154, 176, 0.3)'
   );
   const pointRadii = allValues.map((_, i) =>
     lisIndices.includes(i) ? 4 : 2.5
@@ -45,8 +45,8 @@ function createMiniChart(canvasId, labels, allValues, lisIndices) {
       labels: labels,
       datasets: [{
         data: allValues,
-        borderColor: 'rgba(168, 85, 247, 0.4)',
-        backgroundColor: 'rgba(168, 85, 247, 0.05)',
+        borderColor: 'rgba(249, 115, 22, 0.4)',
+        backgroundColor: 'rgba(249, 115, 22, 0.05)',
         borderWidth: 1.5,
         pointBackgroundColor: pointColors,
         pointBorderColor: pointBorders,
@@ -63,7 +63,7 @@ function createMiniChart(canvasId, labels, allValues, lisIndices) {
         legend: { display: false },
         tooltip: {
           backgroundColor: '#1a1a26',
-          borderColor: 'rgba(168, 85, 247, 0.3)',
+          borderColor: 'rgba(249, 115, 22, 0.3)',
           borderWidth: 1,
           titleColor: '#f0f0f5',
           bodyColor: '#9a9ab0',
@@ -73,7 +73,7 @@ function createMiniChart(canvasId, labels, allValues, lisIndices) {
           callbacks: {
             label: function(ctx) {
               const isLIS = lisIndices.includes(ctx.dataIndex);
-              return `${ctx.parsed.y}${isLIS ? ' ★ LIS' : ''}`;
+              return `${ctx.parsed.y}${isLIS ? ' ★ Evolução' : ''}`;
             }
           }
         }
@@ -104,7 +104,7 @@ function createDetailChart(canvasId, labels, allValues, lisIndices, lisValues, m
 
   // Dataset com todos os valores
   const allPointColors = allValues.map((_, i) =>
-    lisIndices.includes(i) ? '#a855f7' : 'rgba(154, 154, 176, 0.5)'
+    lisIndices.includes(i) ? '#f97316' : 'rgba(154, 154, 176, 0.5)'
   );
   const allPointRadii = allValues.map((_, i) =>
     lisIndices.includes(i) ? 6 : 3
@@ -117,8 +117,8 @@ function createDetailChart(canvasId, labels, allValues, lisIndices, lisValues, m
 
   // Gradient para a área da LIS
   const gradient = ctx.createLinearGradient(0, 0, 0, 320);
-  gradient.addColorStop(0, 'rgba(168, 85, 247, 0.15)');
-  gradient.addColorStop(1, 'rgba(168, 85, 247, 0.0)');
+  gradient.addColorStop(0, 'rgba(249, 115, 22, 0.15)');
+  gradient.addColorStop(1, 'rgba(249, 115, 22, 0.0)');
 
   new Chart(ctx, {
     type: 'line',
@@ -142,11 +142,11 @@ function createDetailChart(canvasId, labels, allValues, lisIndices, lisValues, m
         {
           label: 'Subsequência Crescente (LIS)',
           data: lisLine,
-          borderColor: '#a855f7',
+          borderColor: '#f97316',
           backgroundColor: gradient,
           borderWidth: 2.5,
-          pointBackgroundColor: '#a855f7',
-          pointBorderColor: '#a855f7',
+          pointBackgroundColor: '#f97316',
+          pointBorderColor: '#f97316',
           pointRadius: 6,
           pointHoverRadius: 8,
           fill: true,
@@ -172,7 +172,7 @@ function createDetailChart(canvasId, labels, allValues, lisIndices, lisValues, m
         },
         tooltip: {
           backgroundColor: '#1a1a26',
-          borderColor: 'rgba(168, 85, 247, 0.3)',
+          borderColor: 'rgba(249, 115, 22, 0.3)',
           borderWidth: 1,
           titleColor: '#f0f0f5',
           bodyColor: '#9a9ab0',

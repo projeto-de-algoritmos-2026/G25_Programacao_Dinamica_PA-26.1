@@ -9,14 +9,15 @@
   --bg-card: #1a1a26;
   --bg-card-hover: #22222e;
   --bg-input: #16161f;
-  --bg-overlay: rgba(10, 10, 15, 0.85);
+  --bg-overlay: rgba(10, 10, 15, 0.92);
 
   --text-primary: #f0f0f5;
   --text-secondary: #9a9ab0;
   --text-muted: #5a5a72;
-  --text-accent: #c8b6ff;
+  --text-accent: #ffd6a5;
 
-  --accent-purple: #a855f7;
+  --accent-orange: #f97316;
+  --accent-amber: #fb923c;
   --accent-blue: #3b82f6;
   --accent-cyan: #06b6d4;
   --accent-green: #10b981;
@@ -24,19 +25,19 @@
   --accent-pink: #ec4899;
   --accent-red: #ef4444;
 
-  --gradient-primary: linear-gradient(135deg, #a855f7, #3b82f6);
+  --gradient-primary: linear-gradient(135deg, #f97316, #fb923c);
   --gradient-secondary: linear-gradient(135deg, #06b6d4, #10b981);
-  --gradient-warm: linear-gradient(135deg, #f59e0b, #ec4899);
-  --gradient-bg-glow: radial-gradient(ellipse at 20% 0%, rgba(168, 85, 247, 0.08) 0%, transparent 60%),
-                      radial-gradient(ellipse at 80% 100%, rgba(59, 130, 246, 0.06) 0%, transparent 60%);
+  --gradient-warm: linear-gradient(135deg, #f97316, #f59e0b);
+  --gradient-bg-glow: radial-gradient(ellipse at 20% 0%, rgba(249, 115, 22, 0.07) 0%, transparent 60%),
+                      radial-gradient(ellipse at 80% 100%, rgba(251, 146, 60, 0.05) 0%, transparent 60%);
 
   --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-accent: rgba(168, 85, 247, 0.3);
+  --border-accent: rgba(249, 115, 22, 0.35);
 
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow-purple: 0 0 20px rgba(168, 85, 247, 0.15);
+  --shadow-glow-accent: 0 0 20px rgba(249, 115, 22, 0.15);
   --shadow-glow-green: 0 0 20px rgba(16, 185, 129, 0.15);
 
   --radius-sm: 8px;
@@ -93,11 +94,12 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--bg-overlay);
-  backdrop-filter: blur(20px) saturate(1.2);
-  -webkit-backdrop-filter: blur(20px) saturate(1.2);
-  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(24px) saturate(1.3);
+  -webkit-backdrop-filter: blur(24px) saturate(1.3);
+  border-bottom: 2px solid rgba(249, 115, 22, 0.2);
   padding: 0 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(249, 115, 22, 0.08);
 }
 
 .navbar-inner {
@@ -106,7 +108,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 72px;
 }
 
 .navbar-brand {
@@ -115,13 +117,13 @@ body::before {
   gap: 10px;
   text-decoration: none;
   font-weight: 800;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: var(--text-primary);
   letter-spacing: -0.02em;
 }
 
 .navbar-brand .brand-icon {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .navbar-brand span {
@@ -134,32 +136,35 @@ body::before {
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   list-style: none;
 }
 
 .navbar-links a {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   text-decoration: none;
   color: var(--text-secondary);
-  font-size: 0.875rem;
-  font-weight: 500;
-  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 18px;
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
+  border: 1px solid transparent;
 }
 
-.navbar-links a:hover,
-.navbar-links a.active {
+.navbar-links a:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .navbar-links a.active {
-  background: rgba(168, 85, 247, 0.12);
-  color: var(--accent-purple);
+  background: rgba(249, 115, 22, 0.14);
+  color: var(--accent-orange);
+  border-color: rgba(249, 115, 22, 0.25);
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.08);
 }
 
 /* --- Page Header --- */
@@ -205,7 +210,7 @@ body::before {
 
 .stat-card:hover {
   border-color: var(--border-accent);
-  box-shadow: var(--shadow-glow-purple);
+  box-shadow: var(--shadow-glow-accent);
   transform: translateY(-2px);
 }
 
@@ -220,7 +225,7 @@ body::before {
   flex-shrink: 0;
 }
 
-.stat-icon.purple { background: rgba(168, 85, 247, 0.15); }
+.stat-icon.orange { background: rgba(249, 115, 22, 0.15); }
 .stat-icon.blue   { background: rgba(59, 130, 246, 0.15); }
 .stat-icon.green  { background: rgba(16, 185, 129, 0.15); }
 .stat-icon.yellow { background: rgba(245, 158, 11, 0.15); }
@@ -288,7 +293,7 @@ body::before {
 
 .exercise-card:hover {
   border-color: var(--border-accent);
-  box-shadow: var(--shadow-glow-purple);
+  box-shadow: var(--shadow-glow-accent);
   transform: translateY(-3px);
   background: var(--bg-card-hover);
 }
@@ -381,7 +386,7 @@ body::before {
 }
 
 .card-footer .arrow {
-  color: var(--accent-purple);
+  color: var(--accent-orange);
   font-size: 1.1rem;
   transition: transform var(--transition-fast);
 }
@@ -428,7 +433,7 @@ body::before {
 
 .detail-stat:hover {
   border-color: var(--border-accent);
-  box-shadow: var(--shadow-glow-purple);
+  box-shadow: var(--shadow-glow-accent);
 }
 
 .detail-stat .stat-emoji {
@@ -519,7 +524,7 @@ body::before {
 }
 
 .back-link:hover {
-  color: var(--accent-purple);
+  color: var(--accent-orange);
 }
 
 /* --- Form Page --- */
@@ -566,8 +571,8 @@ body::before {
 
 .form-group input:focus,
 .form-group select:focus {
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.12);
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
 }
 
 .form-row {
@@ -611,8 +616,8 @@ body::before {
 }
 
 .measurement-row input:focus {
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.12);
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
 }
 
 /* --- Buttons --- */
@@ -635,12 +640,12 @@ body::before {
 .btn-primary {
   background: var(--gradient-primary);
   color: white;
-  box-shadow: var(--shadow-glow-purple);
+  box-shadow: var(--shadow-glow-accent);
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.25);
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.25);
 }
 
 .btn-secondary {
@@ -763,8 +768,8 @@ body::before {
 }
 
 .algo-card code {
-  background: rgba(168, 85, 247, 0.1);
-  color: var(--accent-purple);
+  background: rgba(249, 115, 22, 0.1);
+  color: var(--accent-orange);
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.82rem;
