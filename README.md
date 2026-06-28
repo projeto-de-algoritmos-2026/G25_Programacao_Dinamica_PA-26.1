@@ -24,7 +24,25 @@ fisicos registrados, como repeticoes (`reps`), peso corporal
 
 ### Como usar?
 
-O projeto nao possui interface grafica. A execucao e feita pelo terminal.
+O projeto pode ser executado via terminal (CLI) ou pela interface web.
+
+#### Interface Web (recomendado)
+
+Instalar dependências e iniciar o servidor:
+
+```bash
+pip install -r requirements.txt
+python3 app.py
+```
+
+Acesse [http://localhost:5000](http://localhost:5000) no navegador.
+
+A interface permite:
+- 📊 **Dashboard** — Visão geral de todos os exercícios com gráficos
+- 🔍 **Análise detalhada** — Clique em um exercício para ver o gráfico da LIS
+- ➕ **Registrar treino** — Formulário para adicionar novos registros
+
+#### Terminal (CLI)
 
 Analisar todos os exercicios cadastrados:
 

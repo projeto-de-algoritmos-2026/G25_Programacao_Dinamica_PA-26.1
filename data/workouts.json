@@ -90,5 +90,21 @@
     "measurements": {
       "braco_cm": 34.0
     }
+  },
+  {
+    "exercise": "Agachamento",
+    "period": "2026-06-30",
+    "load_kg": 40.0,
+    "reps": 30,
+    "body_weight_kg": 58.0,
+    "measurements": {}
+  },
+  {
+    "exercise": "Teste",
+    "period": "2026-06-30",
+    "load_kg": 900.0,
+    "reps": 999,
+    "body_weight_kg": 60.0,
+    "measurements": {}
   }
 ]

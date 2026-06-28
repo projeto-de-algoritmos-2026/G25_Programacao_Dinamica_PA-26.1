@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Análise detalhada do exercício {{ evolution.exercise }} usando LIS.">
+  <title>{{ evolution.exercise }} — GymTracker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="{{ url_for('dashboard') }}" class="navbar-brand">
+        <span class="brand-icon">🏋️</span>
+        <span>GymTracker</span>
+      </a>
+      <ul class="navbar-links">
+        <li><a href="{{ url_for('dashboard') }}">📊 Dashboard</a></li>
+        <li><a href="{{ url_for('add_page') }}">➕ Registrar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="app-container">
+
+    <!-- Back link -->
+    <a href="{{ url_for('dashboard') }}" class="back-link" style="margin-top: 24px; display: inline-flex;">← Voltar ao Dashboard</a>
+
+    <!-- Page Header -->
+    <header class="page-header" style="padding-top: 16px;">
+      <h1><span class="emoji">🔍</span>{{ evolution.exercise }}</h1>
+      <p>Análise detalhada da métrica <strong>{{ evolution.metric }}</strong> usando o algoritmo LIS.</p>
+    </header>
+
+    {% if evolution.sequence %}
+
+    <!-- Stats -->
+    <div class="detail-stats-grid">
+      <div class="detail-stat animate-in">
+        <div class="stat-emoji">🏁</div>
+        <div class="stat-number">{{ evolution.initial_value | round(1) }}</div>
+        <div class="stat-desc">Valor Inicial</div>
+      </div>
+      <div class="detail-stat animate-in">
+        <div class="stat-emoji">🎯</div>
+        <div class="stat-number">{{ evolution.final_value | round(1) }}</div>
+        <div class="stat-desc">Valor Atual</div>
+      </div>
+      <div class="detail-stat animate-in">
+        <div class="stat-emoji">📈</div>
+        <div class="stat-number">
+          {% if evolution.growth_percent is not none %}
+            {{ "%+.1f"|format(evolution.growth_percent) }}%
+          {% else %}
+            N/A
+          {% endif %}
+        </div>
+        <div class="stat-desc">Evolução Total</div>
+      </div>
+      <div class="detail-stat animate-in">
+        <div class="stat-emoji">⚡</div>
+        <div class="stat-number">{{ evolution.values | length }}</div>
+        <div class="stat-desc">Tamanho LIS</div>
+      </div>
+      <div class="detail-stat animate-in">
+        <div class="stat-emoji">🏆</div>
+        <div class="stat-number">{{ evolution.best_period or '—' }}</div>
+        <div class="stat-desc">Melhor Período</div>
+      </div>
+      <div class="detail-stat animate-in">
+        <div class="stat-emoji">🔥</div>
+        <div class="stat-number">{{ "%+g"|format(evolution.best_delta) }}</div>
+        <div class="stat-desc">Maior Salto</div>
+      </div>
+    </div>
+
+    <!-- Chart -->
+    <div class="detail-chart-card animate-in">
+      <h2 class="section-title">📉 Evolução — {{ evolution.metric }}</h2>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 8px;">
+        Os pontos em <span style="color: #a855f7; font-weight: 600;">roxo</span> representam a Maior Subsequência Crescente (LIS) 
+        encontrada pelo algoritmo de programação dinâmica.
+      </p>
+      <div class="chart-container">
+        <canvas id="detail-chart"></canvas>
+      </div>
+    </div>
+
+    <!-- Sequence Table -->
+    <div class="sequence-table-card animate-in">
+      <h2 class="section-title">📋 Sequência da LIS</h2>
+      <table class="sequence-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Período</th>
+            <th>{{ evolution.metric }}</th>
+            <th>Δ (delta)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for entry in evolution.sequence %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ entry.period }}</td>
+            <td>{{ evolution.values[loop.index0] | round(2) }}</td>
+            <td>
+              {% if loop.index0 == 0 %}
+                <span style="color: var(--text-muted);">—</span>
+              {% else %}
+                {% set delta = evolution.values[loop.index0] - evolution.values[loop.index0 - 1] %}
+                {% if delta > 0 %}
+                  <span class="delta-positive">+{{ delta | round(2) }}</span>
+                {% elif delta < 0 %}
+                  <span class="delta-negative">{{ delta | round(2) }}</span>
+                {% else %}
+                  <span>0</span>
+                {% endif %}
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% else %}
+
+    <div class="empty-state">
+      <div class="empty-icon">📭</div>
+      <p>Nenhum dado encontrado para este exercício com a métrica <strong>{{ evolution.metric }}</strong>.</p>
+      <a href="{{ url_for('add_page') }}" class="btn btn-primary">Registrar treino</a>
+    </div>
+
+    {% endif %}
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    Análise Inteligente de Evolução na Academia · Programação Dinâmica (LIS) · PA 2026.1
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+  {% if evolution.sequence %}
+  <script>
+    createDetailChart(
+      'detail-chart',
+      {{ all_labels | tojson }},
+      {{ all_values | tojson }},
+      {{ lis_indices | tojson }},
+      {{ evolution.values | tojson }},
+      {{ evolution.metric | tojson }}
+    );
+  </script>
+  {% endif %}
+
+</body>
+</html>
