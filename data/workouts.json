@@ -1,110 +1,290 @@
 [
   {
-    "exercise": "Supino",
-    "period": "Janeiro",
-    "load_kg": 2.0,
-    "reps": 10,
-    "body_weight_kg": 70.0,
-    "measurements": {
-      "braco_cm": 31.0
-    }
+    "exercise": "Supino Reto",
+    "period": "2025-01",
+    "load_kg": 40.0,
+    "reps": 8,
+    "body_weight_kg": 75.2,
+    "measurements": {}
   },
   {
-    "exercise": "Supino",
-    "period": "Fevereiro",
-    "load_kg": 4.0,
-    "reps": 10,
-    "body_weight_kg": 70.5,
-    "measurements": {
-      "braco_cm": 31.5
-    }
-  },
-  {
-    "exercise": "Supino",
-    "period": "Marco",
-    "load_kg": 6.0,
-    "reps": 11,
-    "body_weight_kg": 71.0,
-    "measurements": {
-      "braco_cm": 32.0
-    }
-  },
-  {
-    "exercise": "Supino",
-    "period": "Abril",
-    "load_kg": 8.0,
+    "exercise": "Supino Reto",
+    "period": "2025-02",
+    "load_kg": 42.0,
     "reps": 12,
-    "body_weight_kg": 71.8,
-    "measurements": {
-      "braco_cm": 32.7
-    }
+    "body_weight_kg": 75.4,
+    "measurements": {}
   },
   {
-    "exercise": "Supino",
-    "period": "Maio",
-    "load_kg": 10.0,
+    "exercise": "Supino Reto",
+    "period": "2025-03",
+    "load_kg": 46.0,
+    "reps": 10,
+    "body_weight_kg": 75.6,
+    "measurements": {}
+  },
+  {
+    "exercise": "Supino Reto",
+    "period": "2025-04",
+    "load_kg": 48.0,
+    "reps": 10,
+    "body_weight_kg": 75.8,
+    "measurements": {}
+  },
+  {
+    "exercise": "Supino Reto",
+    "period": "2025-05",
+    "load_kg": 45.0,
+    "reps": 8,
+    "body_weight_kg": 76.0,
+    "measurements": {}
+  },
+  {
+    "exercise": "Supino Reto",
+    "period": "2025-06",
+    "load_kg": 50.0,
+    "reps": 8,
+    "body_weight_kg": 76.2,
+    "measurements": {}
+  },
+  {
+    "exercise": "Supino Reto",
+    "period": "2025-07",
+    "load_kg": 54.0,
+    "reps": 10,
+    "body_weight_kg": 76.4,
+    "measurements": {}
+  },
+  {
+    "exercise": "Supino Reto",
+    "period": "2025-08",
+    "load_kg": 56.0,
+    "reps": 10,
+    "body_weight_kg": 76.6,
+    "measurements": {}
+  },
+  {
+    "exercise": "Supino Reto",
+    "period": "2025-09",
+    "load_kg": 56.0,
+    "reps": 8,
+    "body_weight_kg": 76.8,
+    "measurements": {}
+  },
+  {
+    "exercise": "Supino Reto",
+    "period": "2025-10",
+    "load_kg": 58.0,
+    "reps": 10,
+    "body_weight_kg": 77.0,
+    "measurements": {}
+  },
+  {
+    "exercise": "Supino Reto",
+    "period": "2025-11",
+    "load_kg": 60.0,
+    "reps": 10,
+    "body_weight_kg": 77.2,
+    "measurements": {}
+  },
+  {
+    "exercise": "Supino Reto",
+    "period": "2025-12",
+    "load_kg": 62.0,
     "reps": 12,
-    "body_weight_kg": 72.0,
-    "measurements": {
-      "braco_cm": 33.0
-    }
+    "body_weight_kg": 77.4,
+    "measurements": {}
   },
   {
-    "exercise": "Agachamento",
-    "period": "Janeiro",
+    "exercise": "Agachamento Livre",
+    "period": "2025-01",
+    "load_kg": 60.0,
+    "reps": 6,
+    "body_weight_kg": 75.2,
+    "measurements": {}
+  },
+  {
+    "exercise": "Agachamento Livre",
+    "period": "2025-02",
+    "load_kg": 65.0,
+    "reps": 10,
+    "body_weight_kg": 75.4,
+    "measurements": {}
+  },
+  {
+    "exercise": "Agachamento Livre",
+    "period": "2025-03",
+    "load_kg": 70.0,
+    "reps": 6,
+    "body_weight_kg": 75.6,
+    "measurements": {}
+  },
+  {
+    "exercise": "Agachamento Livre",
+    "period": "2025-04",
+    "load_kg": 72.0,
+    "reps": 10,
+    "body_weight_kg": 75.8,
+    "measurements": {}
+  },
+  {
+    "exercise": "Agachamento Livre",
+    "period": "2025-05",
+    "load_kg": 74.0,
+    "reps": 6,
+    "body_weight_kg": 76.0,
+    "measurements": {}
+  },
+  {
+    "exercise": "Agachamento Livre",
+    "period": "2025-06",
+    "load_kg": 79.0,
+    "reps": 6,
+    "body_weight_kg": 76.2,
+    "measurements": {}
+  },
+  {
+    "exercise": "Agachamento Livre",
+    "period": "2025-07",
+    "load_kg": 84.0,
+    "reps": 10,
+    "body_weight_kg": 76.4,
+    "measurements": {}
+  },
+  {
+    "exercise": "Agachamento Livre",
+    "period": "2025-08",
+    "load_kg": 89.0,
+    "reps": 10,
+    "body_weight_kg": 76.6,
+    "measurements": {}
+  },
+  {
+    "exercise": "Agachamento Livre",
+    "period": "2025-09",
+    "load_kg": 93.0,
+    "reps": 10,
+    "body_weight_kg": 76.8,
+    "measurements": {}
+  },
+  {
+    "exercise": "Agachamento Livre",
+    "period": "2025-10",
+    "load_kg": 95.0,
+    "reps": 6,
+    "body_weight_kg": 77.0,
+    "measurements": {}
+  },
+  {
+    "exercise": "Agachamento Livre",
+    "period": "2025-11",
+    "load_kg": 97.0,
+    "reps": 8,
+    "body_weight_kg": 77.2,
+    "measurements": {}
+  },
+  {
+    "exercise": "Agachamento Livre",
+    "period": "2025-12",
+    "load_kg": 102.0,
+    "reps": 8,
+    "body_weight_kg": 77.4,
+    "measurements": {}
+  },
+  {
+    "exercise": "Desenvolvimento",
+    "period": "2025-01",
+    "load_kg": 22.0,
+    "reps": 8,
+    "body_weight_kg": 75.2,
+    "measurements": {}
+  },
+  {
+    "exercise": "Desenvolvimento",
+    "period": "2025-02",
     "load_kg": 20.0,
     "reps": 8,
-    "body_weight_kg": 70.0,
+    "body_weight_kg": 75.4,
     "measurements": {}
   },
   {
-    "exercise": "Agachamento",
-    "period": "Fevereiro",
-    "load_kg": 18.0,
+    "exercise": "Desenvolvimento",
+    "period": "2025-03",
+    "load_kg": 20.0,
     "reps": 8,
-    "body_weight_kg": 70.5,
+    "body_weight_kg": 75.6,
     "measurements": {}
   },
   {
-    "exercise": "Agachamento",
-    "period": "Marco",
+    "exercise": "Desenvolvimento",
+    "period": "2025-04",
+    "load_kg": 18.0,
+    "reps": 12,
+    "body_weight_kg": 75.8,
+    "measurements": {}
+  },
+  {
+    "exercise": "Desenvolvimento",
+    "period": "2025-05",
+    "load_kg": 20.0,
+    "reps": 12,
+    "body_weight_kg": 76.0,
+    "measurements": {}
+  },
+  {
+    "exercise": "Desenvolvimento",
+    "period": "2025-06",
+    "load_kg": 20.0,
+    "reps": 8,
+    "body_weight_kg": 76.2,
+    "measurements": {}
+  },
+  {
+    "exercise": "Desenvolvimento",
+    "period": "2025-07",
+    "load_kg": 18.0,
+    "reps": 12,
+    "body_weight_kg": 76.4,
+    "measurements": {}
+  },
+  {
+    "exercise": "Desenvolvimento",
+    "period": "2025-08",
     "load_kg": 22.0,
-    "reps": 9,
-    "body_weight_kg": 71.0,
+    "reps": 12,
+    "body_weight_kg": 76.6,
     "measurements": {}
   },
   {
-    "exercise": "Agachamento",
-    "period": "Abril",
-    "load_kg": 24.0,
+    "exercise": "Desenvolvimento",
+    "period": "2025-09",
+    "load_kg": 20.0,
     "reps": 10,
-    "body_weight_kg": 71.8,
+    "body_weight_kg": 76.8,
     "measurements": {}
   },
   {
-    "exercise": "Teste",
-    "period": "Junho",
-    "load_kg": 12.0,
-    "reps": null,
-    "body_weight_kg": null,
-    "measurements": {
-      "braco_cm": 34.0
-    }
-  },
-  {
-    "exercise": "Agachamento",
-    "period": "2026-06-30",
-    "load_kg": 40.0,
-    "reps": 30,
-    "body_weight_kg": 58.0,
+    "exercise": "Desenvolvimento",
+    "period": "2025-10",
+    "load_kg": 20.0,
+    "reps": 8,
+    "body_weight_kg": 77.0,
     "measurements": {}
   },
   {
-    "exercise": "Teste",
-    "period": "2026-06-30",
-    "load_kg": 900.0,
-    "reps": 999,
-    "body_weight_kg": 60.0,
+    "exercise": "Desenvolvimento",
+    "period": "2025-11",
+    "load_kg": 20.0,
+    "reps": 8,
+    "body_weight_kg": 77.2,
+    "measurements": {}
+  },
+  {
+    "exercise": "Desenvolvimento",
+    "period": "2025-12",
+    "load_kg": 22.0,
+    "reps": 8,
+    "body_weight_kg": 77.4,
     "measurements": {}
   }
 ]
