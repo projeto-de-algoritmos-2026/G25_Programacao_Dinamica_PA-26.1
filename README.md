@@ -93,5 +93,20 @@ Python 3
 
 ## Screenshots (demonstração) 
 
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><img src="imgs/tela-inicial-gym.png" alt="tela-inicial-gym" width="400"/><br/>Tela inicial</td>
+      <td align="center"><img src="imgs/tela-inicial2-gym.png" alt="Tela inicial 2" width="400"/><br/>Tela inicial com ZIP</td>
+      <td align="center"><img src="imgs/tela-registro-treino.png" alt="tela-registro-treino" width="400"/><br/>Tela de registro de treino</td>
+      <td align="center"><img src="imgs/evolucao-detalhada.png" alt="evolucao-detalhada" width="400"/><br/>Evolução detalhada</td>
+      <td align="center"><img src="imgs/sequencia-lis.png" alt="sequencia-lis" width="350"/><br/>Sequência LIS</td>      
+    </tr>
+  </table>
+</div>
+
+---
+
+
 
 ## Vídeo (demonstração)
