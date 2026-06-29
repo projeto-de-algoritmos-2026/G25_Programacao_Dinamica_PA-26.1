@@ -395,6 +395,39 @@ body::before {
   transform: translateX(4px);
 }
 
+/* --- Body Weight Evolution --- */
+.weight-evolution-card {
+  width: 100%;
+  margin-bottom: 48px;
+  cursor: default;
+}
+
+.weight-summary {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.85fr) minmax(0, 2.15fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.weight-header {
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.weight-stats {
+  margin-bottom: 0;
+}
+
+.weight-chart-container {
+  min-height: 220px;
+  height: 100%;
+  margin: 0;
+}
+
+.weight-empty {
+  margin-bottom: 48px;
+}
+
 /* --- Detail Page --- */
 .detail-grid {
   display: grid;
@@ -800,6 +833,14 @@ body::before {
 
   .exercises-grid {
     grid-template-columns: 1fr;
+  }
+
+  .weight-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .weight-chart-container {
+    height: 220px;
   }
 
   .stats-row {

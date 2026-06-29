@@ -148,6 +148,64 @@
     </div>
     {% endif %}
 
+    <!-- Body Weight Evolution -->
+    <h2 class="section-title">⚖️ Peso corporal</h2>
+
+    {% if body_weight_evolution %}
+    <div class="weight-evolution-card exercise-card animate-in">
+      <div class="weight-summary">
+        <div>
+          <div class="card-header weight-header">
+            <span class="card-title">Evolução do peso</span>
+            {% if body_weight_evolution.growth_percent is not none %}
+              {% if body_weight_evolution.growth_percent > 0 %}
+              <span class="card-badge positive">+{{ "%.1f"|format(body_weight_evolution.growth_percent) }}%</span>
+              {% elif body_weight_evolution.growth_percent < 0 %}
+              <span class="card-badge negative">{{ "%.1f"|format(body_weight_evolution.growth_percent) }}%</span>
+              {% else %}
+              <span class="card-badge neutral">0%</span>
+              {% endif %}
+            {% else %}
+            <span class="card-badge neutral">N/A</span>
+            {% endif %}
+          </div>
+
+          <div class="card-stats weight-stats">
+            <div class="card-stat-item">
+              <span class="label">Valor Inicial</span>
+              <span class="value">{% if body_weight_evolution.initial_value is not none %}{{ body_weight_evolution.initial_value | round(1) }} kg{% else %}—{% endif %}</span>
+            </div>
+            <div class="card-stat-item">
+              <span class="label">Valor Atual</span>
+              <span class="value">{% if body_weight_evolution.final_value is not none %}{{ body_weight_evolution.final_value | round(1) }} kg{% else %}—{% endif %}</span>
+            </div>
+            <div class="card-stat-item">
+              <span class="label">Métrica</span>
+              <span class="value">body_weight_kg</span>
+            </div>
+            <div class="card-stat-item">
+              <span class="label">Melhor Período</span>
+              <span class="value">{{ body_weight_evolution.best_period or '—' }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-chart-container weight-chart-container">
+          <canvas id="weight-chart"></canvas>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <span class="sequence-label">LIS: {{ body_weight_evolution.values | length }} pontos</span>
+      </div>
+    </div>
+    {% else %}
+    <div class="empty-state weight-empty">
+      <div class="empty-icon">⚖️</div>
+      <p>Nenhum peso corporal registrado ainda.</p>
+    </div>
+    {% endif %}
+
   </div>
 
   <!-- Footer -->
@@ -167,6 +225,15 @@
       {{ lis_indices[evo.exercise] | tojson }}
     );
     {% endfor %}
+
+    {% if body_weight_evolution %}
+    createMiniChart(
+      'weight-chart',
+      {{ body_weight_evolution.labels | tojson }},
+      {{ body_weight_evolution.all_values | tojson }},
+      {{ body_weight_evolution.lis_indices | tojson }}
+    );
+    {% endif %}
   </script>
 
 </body>

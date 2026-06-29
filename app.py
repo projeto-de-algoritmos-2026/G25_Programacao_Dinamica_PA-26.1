@@ -8,11 +8,12 @@ from __future__ import annotations
 
 from collections import defaultdict
 from pathlib import Path
+from types import SimpleNamespace
 
 from flask import Flask, flash, redirect, render_template, request, url_for
 
 from src.analyzer import analyze_all, analyze_exercise
-from src.lis import longest_increasing_subsequence
+from src.lis import best_progress_interval, longest_increasing_subsequence, percentage_growth
 from src.models import WorkoutEntry
 from src.storage import append_entry, load_entries
 
@@ -54,6 +55,42 @@ def _build_chart_data(
     return labels, numeric, lis.indices
 
 
+def _build_body_weight_evolution(entries: list[WorkoutEntry]) -> SimpleNamespace | None:
+    """Monta a evolução agregada do peso corporal quando ele foi registrado."""
+    weights_by_period: dict[str, float] = {}
+
+    for entry in entries:
+        if entry.body_weight_kg is not None:
+            weights_by_period[entry.period] = entry.body_weight_kg
+
+    labels = list(weights_by_period.keys())
+    values = list(weights_by_period.values())
+
+    if not values:
+        return None
+
+    lis = longest_increasing_subsequence(values)
+    growth = None
+    if lis.values:
+        growth = percentage_growth(lis.values[0], lis.values[-1])
+
+    best_index, _best_delta = best_progress_interval(lis.values)
+    best_period = None
+    if best_index is not None and lis.indices:
+        best_period = labels[lis.indices[best_index]]
+
+    return SimpleNamespace(
+        labels=labels,
+        all_values=values,
+        lis_indices=lis.indices,
+        values=lis.values,
+        initial_value=lis.values[0] if lis.values else None,
+        final_value=lis.values[-1] if lis.values else None,
+        growth_percent=growth,
+        best_period=best_period,
+    )
+
+
 # ---------------------------------------------------------------------------
 # Routes
 # ---------------------------------------------------------------------------
@@ -74,6 +111,8 @@ def dashboard():
         all_labels[evo.exercise] = labels
         all_values[evo.exercise] = values
         lis_indices[evo.exercise] = indices
+
+    body_weight_evolution = _build_body_weight_evolution(entries)
 
     # Estatísticas do header
     total_exercises = len(evolutions)
@@ -98,6 +137,7 @@ def dashboard():
         total_entries=total_entries,
         best_growth=best_growth,
         longest_lis=longest_lis,
+        body_weight_evolution=body_weight_evolution,
     )
 
 
