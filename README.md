@@ -108,5 +108,6 @@ Python 3
 ---
 
 
-
 ## Vídeo (demonstração)
+
+[Apresentação - G25 - Programação Dinâmica PA-2026.1](https://youtu.be/cgfhtM6BG-0)
